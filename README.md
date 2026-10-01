@@ -1,7 +1,7 @@
 
 # Autonomous Robot Navigation with A*
 
-Proyecto final de la cátedra de Inteligencia Artificial aplicada a la Robótica — FIUNA.
+Proyecto final de la cátedra de **Inteligencia Artificial aplicada a la Robótica — FIUNA**.
 
 El proyecto implementa un sistema de navegación autónoma para un robot diferencial utilizando:
 
@@ -14,9 +14,20 @@ El proyecto implementa un sistema de navegación autónoma para un robot diferen
 - Arduino Uno para planificación y control del robot.
 
 ## Funcionamiento
-La cámara ZED 2i genera una representación del entorno a partir de información de profundidad. La grilla se reduce a una representación de `6 × 6` celdas y se transmite al Arduino mediante ESP8266.
+
+La cámara ZED 2i genera una representación del entorno a partir de información de profundidad. Esta representación se reduce a una grilla de `6 × 6` celdas y se transmite al Arduino mediante ESP8266.
+
 El Arduino ejecuta A* utilizando conectividad de cuatro vecinos y distancia Manhattan como heurística.
+
 Durante el desplazamiento, el HC-SR04 detecta obstáculos no incluidos inicialmente en el mapa. Cuando esto ocurre, el robot actualiza localmente la grilla y vuelve a ejecutar A* desde su posición actual.
+
+## Archivos principales
+
+- `sketch_sep22b.ino`: firmware del Arduino. Incluye la implementación de A*, control de motores, lectura del sensor ultrasónico, control del servomotor y lógica de replanificación.
+
+- `zed_robot_mapeos.py`: módulo de percepción externa. Incluye procesamiento de la cámara ZED 2i, generación de la grilla de ocupación, detección ArUco, detección de objetos mediante YOLOv8n y envío de la grilla al robot.
+
+- `informe.pdf`: informe técnico final del proyecto, con la descripción de la arquitectura, metodología, implementación, resultados y conclusiones.
 
 ## Parámetros principales
 
@@ -35,6 +46,7 @@ report/
     informe.tex
 source_zips/
     archivos originales del proyecto
+
 Limitaciones
 El robot no dispone de encoders, por lo que la posición interna se estima a partir de los movimientos ejecutados y tiempos previamente calibrados. La posición obtenida mediante ArUco no se utiliza actualmente para corregir continuamente la posición del Arduino.
 
