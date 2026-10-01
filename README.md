@@ -38,9 +38,12 @@ source_zips/
 Limitaciones
 El robot no dispone de encoders, por lo que la posición interna se estima a partir de los movimientos ejecutados y tiempos previamente calibrados. La posición obtenida mediante ArUco no se utiliza actualmente para corregir continuamente la posición del Arduino.
 
-Autores
+Autores:
+
 Francisco Santiago Moreno Schribertschnik
+
 Antonella Prado
+
 Nuvia Meza
 
 
@@ -53,4 +56,4 @@ Paraguay
 
 
 
-⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮
+
